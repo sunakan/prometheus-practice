@@ -6,7 +6,7 @@ up:
 		--tty \
 		--name node-exporter \
 		--hostname node-exporter \
-		-publish 9100:9100 \
+		--publish 9100:9100 \
 		prom/node-exporter:${DOCKER_NODE_EXPORTER_TAG}
 
 # $1：docker container name
