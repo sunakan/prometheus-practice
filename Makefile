@@ -1,12 +1,9 @@
-export VAGRANT_PROMETHEUS_TAG=v2.17.2
+exporter-up:
+	cd exporter-side && make up
 
-prom:
-	docker run \
-		--rm \
-		--interactive \
-		--tty \
-		--name prom \
-		--hostname prom \
-		--publish 9090:9090 \
-		--mount type=bind,source=${PWD}/prometheus.yml,target=/etc/prometheus/prometheus.yml \
-		prom/prometheus:${VAGRANT_PROMETHEUS_TAG}
+prom-up:
+	cd prometheus-side && make up
+
+clean:
+	cd prometheus-side && make clean
+	cd exporter-side && make clean
